@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MYFANS</title>
+  <style>
+    :root {
+      --rosa: #ff2c8e;
+      --branco: #ffffff;
+      --preto: #000000;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('background.jpg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--branco);
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.85);
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: opacity 0.5s ease;
+    }
+
+    .overlay h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .overlay button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .sim {
+      background-color: var(--rosa);
+      color: var(--branco);
+    }
+
+    .nao {
+      background-color: var(--branco);
+      color: var(--preto);
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px 20px;
+      display: none;
+      animation: fadeIn 1s forwards;
+    }
+
+    .logo {
+      width: 150px;
+      margin: 0 auto 30px;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .social-buttons a {
+      background-color: var(--preto);
+      border: 2px solid var(--rosa);
+      padding: 15px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s;
+    }
+
+    .social-buttons a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-buttons img {
+      width: 30px;
+    }
+
+    .arrow {
+      margin: 30px auto;
+      animation: bounce 1.5s infinite;
+      font-size: 32px;
+      color: var(--rosa);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    .packs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .packs button {
+      background-color: var(--rosa);
+      color: var(--branco);
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .pack-content {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .pack-content.active {
+      display: block;
+    }
+
+    .previews {
+      margin-bottom: 20px;
+    }
+
+    .price-buttons button {
+      background-color: var(--branco);
+      color: var(--preto);
+      border-radius: 8px;
+      margin: 10px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- VERIFICAÇÃO +18 -->
+  <div class="overlay" id="ageCheck">
+    <h2>Você tem mais de 18 anos?</h2>
+    <button class="sim" onclick="enterSite()">Sim, sou maior</button>
+    <button class="nao" onclick="closeSite()">Não</button>
+  </div>
+
+  <!-- CONTEÚDO DO SITE -->
+  <div class="container" id="mainContent">
+    <img src="logo-myfans.png" alt="MYFANS Logo" class="logo" />
+
+    <div class="social-buttons">
+      <a href="https://www.instagram.com/myfansltda/" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/ff2c8e/instagram-new.png"/>
+      </a>
+      <a href="https://t.me/+16HBCk3PsFNkMTUx" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/ff2c8e/telegram-app.png"/>
+      </a>
+      <a href="https://www.tiktok.com/@myfansltda?_t=ZM-8vmhNRAohxW&_r=1" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/ff2c8e/tiktok--v1.png"/>
+      </a>
+    </div>
+
+    <div class="arrow">⬇️</div>
+
+    <div class="packs">
+      <button onclick="showPack(1)">PACK 1</button>
+      <button onclick="showPack(2)">PACK 2</button>
+      <button onclick="showPack(3)">PACK 3</button>
+      <button onclick="showPack(4)">PACK 4</button>
+    </div>
+
+    <div id="pack1" class="pack-content">
+      <div class="previews">[Adicionar imagens e vídeos aqui]</div>
+      <div class="price-buttons">
+        <button>R$9,90 - 5 fotos e 3 vídeos</button>
+        <button>R$19,90 - 10 fotos e 5 vídeos</button>
+        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+      </div>
+    </div>
+    <div id="pack2" class="pack-content">[Conteúdo do PACK 2]</div>
+    <div id="pack3" class="pack-content">[Conteúdo do PACK 3]</div>
+    <div id="pack4" class="pack-content">[Conteúdo do PACK 4]</div>
+  </div>
+
+  <script>
+    function enterSite() {
+      document.getElementById("ageCheck").style.opacity = "0";
+      setTimeout(() => {
+        document.getElementById("ageCheck").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+      }, 500);
+    }
+
+    function closeSite() {
+      alert("Você será redirecionado.");
+      window.location.href = "https://google.com";
+    }
+
+    function showPack(id) {
+      const packs = document.querySelectorAll('.pack-content');
+      packs.forEach(pack => pack.classList.remove('active'));
+      document.getElementById('pack' + id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
