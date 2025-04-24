@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyFans</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="age-verification" class="age-check">
+    <img src="assets/img/logo-myfans.png" class="logo" alt="Logo MyFans" />
+    <div class="box">
+      <h1>É MAIOR DE +18 ANOS?</h1>
+      <p>O site é para pessoas maiores de 18 anos por conter conteúdo explícito e nudez.</p>
+      <div class="buttons">
+        <button onclick="enterSite()">SIM, SOU DE MAIOR</button>
+        <button onclick="closeSite()">NÃO, SOU DE MENOR</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content" style="display: none;">
+    <img src="assets/img/logo-myfans.png" class="logo center" alt="Logo MyFans" />
+    <div class="social-icons">
+      <a href="#" target="_blank"><img src="assets/img/instagram.png" alt="Instagram" /></a>
+      <a href="#" target="_blank"><img src="assets/img/telegram.png" alt="Telegram" /></a>
+      <a href="#" target="_blank"><img src="assets/img/tiktok.png" alt="TikTok" /></a>
+    </div>
+
+    <div class="arrow">&#8595;</div>
+
+    <section class="packs">
+      <div class="pack" onclick="showPack('pack1')">
+        <img src="assets/img/pack1.png" alt="Pack 1" />
+        <button>PACK 1</button>
+      </div>
+      <div class="pack" onclick="showPack('pack2')">
+        <img src="assets/img/pack2.png" alt="Pack 2" />
+        <button>PACK 2</button>
+      </div>
+      <div class="pack" onclick="showPack('pack3')">
+        <img src="assets/img/pack3.png" alt="Pack 3" />
+        <button>PACK 3</button>
+      </div>
+      <div class="pack" onclick="showPack('pack4')">
+        <img src="assets/img/pack4.png" alt="Pack 4" />
+        <button>PACK 4</button>
+      </div>
+    </section>
+
+    <section id="pack-content" class="hidden">
+      <div class="media-preview">Imagens/Vídeos do Pack</div>
+      <div class="price-buttons">
+        <button>R$9,90 - 5 fotos e 3 vídeos</button>
+        <button>R$19,90 - 10 fotos e 5 vídeos</button>
+        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
