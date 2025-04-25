@@ -13,7 +13,7 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background: url('background.jpg.png') no-repeat center center fixed;
       background-size: cover;
       color: var(--branco);
@@ -147,12 +147,30 @@
       50% { transform: translateY(10px); }
     }
 
+    .videos-container {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 2px solid var(--rosa);
+      border-radius: 20px;
+      padding: 40px 20px;
+      margin-top: 40px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .videos-container h1 {
+      font-size: 36px;
+      color: var(--rosa);
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    }
+
     .videos-section {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      padding: 0 20px 50px;
     }
 
     .video-thumb {
@@ -164,6 +182,10 @@
     }
 
     @media (max-width: 768px) {
+      .videos-container h1 {
+        font-size: 28px;
+      }
+
       .video-thumb {
         width: 95%;
         height: 250px;
@@ -208,18 +230,19 @@
 
     <div class="arrow">↓</div>
 
-    <div class="videos-section">
-      <div class="video-thumb"></div>
-      <div class="video-thumb"></div>
-      <div class="video-thumb"></div>
-      <div class="video-thumb"></div>
-      <div class="video-thumb"></div>
-
-      <div class="video-thumb"></div>
-      <div class="video-thumb"></div>
-      <div class="video-thumb"></div>
-      <div class="video-thumb"></div>
-      <div class="video-thumb"></div>
+    <!-- Bloco de vídeos -->
+    <div class="videos-container">
+      <h1>Prévias</h1>
+      <div class="videos-section">
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+      </div>
     </div>
   </div>
 
