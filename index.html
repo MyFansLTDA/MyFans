@@ -13,7 +13,7 @@
 
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       background: url('background.jpg.png') no-repeat center center fixed;
       background-size: cover;
       color: var(--branco);
@@ -122,24 +122,32 @@
       width: 30px;
     }
 
-    .arrow {
-      margin: 60px auto 40px;
-      animation: bounce 1.5s infinite;
-      font-size: 24px;
-      color: var(--rosa);
-      width: 50px;
-      height: 50px;
-      border: 2px solid var(--rosa);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 12px var(--rosa);
-      transition: transform 0.3s ease;
+    .buy-button {
+      display: inline-block;
+      margin: 30px auto 10px;
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--branco);
+      background: linear-gradient(45deg, #ff2c8e, #ff1493);
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(255, 44, 142, 0.8);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-shadow: 1px 1px 2px #000;
     }
 
-    .arrow:hover {
+    .buy-button:hover {
       transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(255, 44, 142, 1);
+    }
+
+    .arrow {
+      margin: 40px auto 20px;
+      animation: bounce 1.5s infinite;
+      font-size: 40px;
+      color: var(--rosa);
     }
 
     @keyframes bounce {
@@ -147,48 +155,51 @@
       50% { transform: translateY(10px); }
     }
 
-    .videos-container {
-      background-color: rgba(255, 255, 255, 0.05);
+    .section-preview {
+      background-color: rgba(0, 0, 0, 0.7);
       border: 2px solid var(--rosa);
       border-radius: 20px;
-      padding: 40px 20px;
-      margin-top: 40px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 40px auto 30px;
+      padding: 30px 20px;
+      max-width: 1000px;
+      box-shadow: 0 0 15px var(--rosa);
     }
 
-    .videos-container h1 {
+    .section-preview h2 {
       font-size: 36px;
+      font-family: 'Arial Black', sans-serif;
       color: var(--rosa);
-      margin-bottom: 40px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-      font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+      margin-bottom: 30px;
     }
 
     .videos-section {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 25px;
     }
 
     .video-thumb {
-      width: 320px;
-      height: 200px;
+      width: 260px;
+      height: 170px;
       background-color: #333;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     @media (max-width: 768px) {
-      .videos-container h1 {
+      .video-thumb {
+        width: 90%;
+        height: 200px;
+      }
+
+      .section-preview h2 {
         font-size: 28px;
       }
 
-      .video-thumb {
-        width: 95%;
-        height: 250px;
+      .buy-button {
+        width: 80%;
+        padding: 15px 0;
       }
     }
 
@@ -228,11 +239,15 @@
       </a>
     </div>
 
-    <div class="arrow">↓</div>
+    <!-- Botão COMPRAR -->
+    <a href="https://t.me/+16HBCk3PsFNkMTUx" target="_blank" class="buy-button">COMPRAR</a>
 
-    <!-- Bloco de vídeos -->
-    <div class="videos-container">
-      <h1>Prévias</h1>
+    <!-- Seta -->
+    <div class="arrow">⬇️</div>
+
+    <!-- Retângulo com "Prévias" -->
+    <div class="section-preview">
+      <h2>PRÉVIAS</h2>
       <div class="videos-section">
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
