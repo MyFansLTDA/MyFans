@@ -32,28 +32,31 @@
       align-items: center;
       flex-direction: column;
       transition: opacity 0.5s ease;
+      padding: 20px;
+      text-align: center;
     }
 
     .age-box {
       border: 2px solid var(--rosa);
-      padding: 40px 30px;
+      padding: 30px 25px;
       border-radius: 20px;
       background-color: rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 20px var(--rosa);
-      text-align: center;
+      max-width: 500px;
       animation: fadeIn 1s forwards;
       transition: opacity 0.5s ease;
     }
 
     .age-box h2 {
       margin-bottom: 20px;
-      font-size: 24px;
+      font-size: 18px;
+      line-height: 1.5;
     }
 
     .age-box button {
       margin: 10px;
       padding: 10px 20px;
-      font-size: 18px;
+      font-size: 16px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -110,10 +113,10 @@
     }
 
     .arrow {
-      margin: 30px auto;
-      animation: bounce 1.5s infinite;
-      font-size: 40px;
+      margin: 80px auto 40px;
+      font-size: 50px;
       color: var(--rosa);
+      animation: bounce 1.5s infinite;
     }
 
     @keyframes bounce {
@@ -121,45 +124,26 @@
       50% { transform: translateY(10px); }
     }
 
-    .packs {
+    .gallery {
       display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row-reverse;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 15px;
-      margin-top: 20px;
+      flex-wrap: wrap;
     }
 
-    .packs button {
-      background-color: var(--rosa);
-      color: var(--branco);
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
+    .media {
+      width: 150px;
+      height: 100px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid var(--rosa);
       border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .pack-content {
-      display: none;
-      margin-top: 30px;
-    }
-
-    .pack-content.active {
-      display: block;
-    }
-
-    .previews {
-      margin-bottom: 20px;
-    }
-
-    .price-buttons button {
-      background-color: var(--branco);
-      color: var(--preto);
-      border-radius: 8px;
-      margin: 10px;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-weight: bold;
     }
 
     @keyframes fadeIn {
@@ -173,7 +157,9 @@
   <!-- VERIFICAÇÃO +18 -->
   <div class="overlay" id="ageCheck">
     <div class="age-box">
-      <h2>Você tem mais de 18 anos?</h2>
+      <h2>
+        Este site contém material com restrição de idade, incluindo nudez e representação explícita de atividade sexual. Ao registrar, você afirma que tem pelo menos 18 anos de idade ou a maioridade na jurisdição de onde está acessando o site e que consente visualizar o conteúdo sexualmente explícito.
+      </h2>
       <button class="sim" onclick="enterSite()">Sim, sou maior</button>
       <button class="nao" onclick="closeSite()">Não</button>
     </div>
@@ -195,45 +181,20 @@
       </a>
     </div>
 
-    <div class="arrow">&#x2B07;&#xFE0F;</div>
+    <div class="arrow">&#x2193;</div>
 
-    <div class="packs">
-      <button onclick="showPack(1)">PACK 1</button>
-      <button onclick="showPack(2)">PACK 2</button>
-      <button onclick="showPack(3)">PACK 3</button>
-      <button onclick="showPack(4)">PACK 4</button>
-    </div>
-
-    <div id="pack1" class="pack-content">
-      <div class="previews">[Adicionar imagens e vídeos aqui]</div>
-      <div class="price-buttons">
-        <button>R$9,90 - 5 fotos e 3 vídeos</button>
-        <button>R$19,90 - 10 fotos e 5 vídeos</button>
-        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+    <div class="gallery">
+      <div class="row">
+        <div class="media"></div><div class="media"></div><div class="media"></div><div class="media"></div><div class="media"></div>
       </div>
-    </div>
-    <div id="pack2" class="pack-content">
-      <div class="previews">[Adicionar imagens e vídeos aqui]</div>
-      <div class="price-buttons">
-        <button>R$9,90 - 5 fotos e 3 vídeos</button>
-        <button>R$19,90 - 10 fotos e 5 vídeos</button>
-        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+      <div class="row">
+        <div class="media"></div><div class="media"></div><div class="media"></div><div class="media"></div><div class="media"></div>
       </div>
-    </div>
-    <div id="pack3" class="pack-content">
-      <div class="previews">[Adicionar imagens e vídeos aqui]</div>
-      <div class="price-buttons">
-        <button>R$9,90 - 5 fotos e 3 vídeos</button>
-        <button>R$19,90 - 10 fotos e 5 vídeos</button>
-        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+      <div class="row">
+        <div class="media"></div><div class="media"></div><div class="media"></div><div class="media"></div><div class="media"></div>
       </div>
-    </div>
-    <div id="pack4" class="pack-content">
-      <div class="previews">[Adicionar imagens e vídeos aqui]</div>
-      <div class="price-buttons">
-        <button>R$9,90 - 5 fotos e 3 vídeos</button>
-        <button>R$19,90 - 10 fotos e 5 vídeos</button>
-        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+      <div class="row">
+        <div class="media"></div><div class="media"></div><div class="media"></div><div class="media"></div><div class="media"></div>
       </div>
     </div>
   </div>
@@ -253,12 +214,6 @@
     function closeSite() {
       alert("Você será redirecionado.");
       window.location.href = "https://google.com";
-    }
-
-    function showPack(id) {
-      const packs = document.querySelectorAll('.pack-content');
-      packs.forEach(pack => pack.classList.remove('active'));
-      document.getElementById('pack' + id).classList.add('active');
     }
   </script>
 </body>
