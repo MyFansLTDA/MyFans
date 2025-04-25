@@ -41,24 +41,25 @@
       background-color: rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 20px var(--rosa);
       text-align: center;
+      max-width: 380px;
       animation: fadeIn 1s forwards;
       transition: opacity 0.5s ease;
-      max-width: 90%;
     }
 
     .age-box img {
       width: 100px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .age-box h2 {
-      margin-bottom: 15px;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: bold;
+      margin-bottom: 10px;
     }
 
     .age-box p {
-      font-size: 16px;
+      font-size: 14px;
+      line-height: 1.5;
       margin-bottom: 20px;
     }
 
@@ -133,27 +134,20 @@
       50% { transform: translateY(10px); }
     }
 
-    .media-grid {
+    .videos-section {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-top: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
       padding: 0 20px;
     }
 
-    .media-row {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .media-item {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 2px solid var(--rosa);
-      border-radius: 15px;
-      width: 180px;
-      height: 140px;
+    .video-thumb {
+      width: 200px;
+      height: 130px;
+      background-color: #333;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     @keyframes fadeIn {
@@ -163,13 +157,14 @@
   </style>
 </head>
 <body>
-
   <!-- VERIFICAÇÃO +18 -->
   <div class="overlay" id="ageCheck">
     <div class="age-box">
-      <img src="logo-myfans.png" alt="MYFANS Logo">
+      <img src="logo-myfans.png" alt="Logo MYFANS">
       <h2><strong>Você tem mais de 18 anos?</strong></h2>
-      <p>Este site contém material com restrição de idade, incluindo nudez e representação explícita de atividade sexual. Ao registrar, você afirma que tem pelo menos 18 anos de idade ou a maioridade na jurisdição de onde está acessando o site e que consente visualizar o conteúdo sexualmente explícito.</p>
+      <p>
+        Este site contém material com restrição de idade, incluindo nudez e representação explícita de atividade sexual. Ao registrar, você afirma que tem pelo menos 18 anos de idade ou a maioridade na jurisdição de onde está acessando o site e que consente visualizar o conteúdo sexualmente explícito.
+      </p>
       <button class="sim" onclick="enterSite()">Sim, sou maior</button>
       <button class="nao" onclick="closeSite()">Não</button>
     </div>
@@ -193,35 +188,30 @@
 
     <div class="arrow">⬇️</div>
 
-    <div class="media-grid">
-      <div class="media-row">
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-      </div>
-      <div class="media-row">
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-      </div>
-      <div class="media-row">
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-      </div>
-      <div class="media-row">
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-        <div class="media-item"></div>
-      </div>
+    <div class="videos-section">
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
+      <div class="video-thumb"></div>
     </div>
   </div>
 
