@@ -30,8 +30,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       transition: opacity 0.5s ease;
+    }
+
+    .overlay-box {
+      border: 2px solid var(--rosa);
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 0 20px var(--rosa);
+      background-color: rgba(0, 0, 0, 0.8);
     }
 
     .overlay h2 {
@@ -110,45 +118,44 @@
       50% { transform: translateY(10px); }
     }
 
-    .packs {
+    .video-gallery {
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .video-gallery .row {
       display: flex;
+      flex-direction: row-reverse;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .packs button {
-      background-color: var(--rosa);
-      color: var(--branco);
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .pack-content {
-      display: none;
-      margin-top: 30px;
-    }
-
-    .pack-content.active {
-      display: block;
-    }
-
-    .previews {
+      flex-wrap: nowrap;
       margin-bottom: 20px;
+      gap: 10px;
     }
 
-    .price-buttons button {
-      background-color: var(--branco);
-      color: var(--preto);
-      border-radius: 8px;
-      margin: 10px;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-weight: bold;
+    .video-gallery img {
+      width: 200px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #ff2c8e;
+      box-shadow: 0 0 10px #ff2c8e55;
+      transition: transform 0.3s ease;
+    }
+
+    .video-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .video-gallery .row {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .video-gallery img {
+        width: 45%;
+        margin: 5px 0;
+      }
     }
 
     @keyframes fadeIn {
@@ -161,9 +168,11 @@
 
   <!-- VERIFICAÇÃO +18 -->
   <div class="overlay" id="ageCheck">
-    <h2>Você tem mais de 18 anos?</h2>
-    <button class="sim" onclick="enterSite()">Sim, sou maior</button>
-    <button class="nao" onclick="closeSite()">Não</button>
+    <div class="overlay-box">
+      <h2>Você tem mais de 18 anos?</h2>
+      <button class="sim" onclick="enterSite()">Sim, sou maior</button>
+      <button class="nao" onclick="closeSite()">Não</button>
+    </div>
   </div>
 
   <!-- CONTEÚDO DO SITE -->
@@ -184,52 +193,45 @@
 
     <div class="arrow">&#x2B07;&#xFE0F;</div>
 
-    <div class="packs">
-      <button onclick="showPack(1)">PACK 1</button>
-      <button onclick="showPack(2)">PACK 2</button>
-      <button onclick="showPack(3)">PACK 3</button>
-      <button onclick="showPack(4)">PACK 4</button>
-    </div>
-
-    <div id="pack1" class="pack-content">
-      <div class="previews">[Adicionar imagens e vídeos aqui]</div>
-      <div class="price-buttons">
-        <button>R$9,90 - 5 fotos e 3 vídeos</button>
-        <button>R$19,90 - 10 fotos e 5 vídeos</button>
-        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+    <!-- VIDEOS EM FILEIRAS -->
+    <div class="video-gallery">
+      <div class="row">
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+1" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+2" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+3" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+4" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+5" />
       </div>
-    </div>
-    <div id="pack2" class="pack-content">
-      <div class="previews">[Adicionar imagens e vídeos aqui]</div>
-      <div class="price-buttons">
-        <button>R$9,90 - 5 fotos e 3 vídeos</button>
-        <button>R$19,90 - 10 fotos e 5 vídeos</button>
-        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+      <div class="row">
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+6" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+7" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+8" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+9" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+10" />
       </div>
-    </div>
-    <div id="pack3" class="pack-content">
-      <div class="previews">[Adicionar imagens e vídeos aqui]</div>
-      <div class="price-buttons">
-        <button>R$9,90 - 5 fotos e 3 vídeos</button>
-        <button>R$19,90 - 10 fotos e 5 vídeos</button>
-        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+      <div class="row">
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+11" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+12" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+13" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+14" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+15" />
       </div>
-    </div>
-    <div id="pack4" class="pack-content">
-      <div class="previews">[Adicionar imagens e vídeos aqui]</div>
-      <div class="price-buttons">
-        <button>R$9,90 - 5 fotos e 3 vídeos</button>
-        <button>R$19,90 - 10 fotos e 5 vídeos</button>
-        <button>R$29,90 - 15 fotos e 10 vídeos</button>
+      <div class="row">
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+16" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+17" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+18" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+19" />
+        <img src="https://via.placeholder.com/200x120.png?text=Vídeo+20" />
       </div>
     </div>
   </div>
 
   <script>
     function enterSite() {
-      document.getElementById("ageCheck").style.opacity = "0";
+      const overlay = document.getElementById("ageCheck");
+      overlay.style.opacity = "0";
       setTimeout(() => {
-        document.getElementById("ageCheck").style.display = "none";
+        overlay.style.display = "none";
         document.getElementById("mainContent").style.display = "block";
       }, 500);
     }
@@ -237,12 +239,6 @@
     function closeSite() {
       alert("Você será redirecionado.");
       window.location.href = "https://google.com";
-    }
-
-    function showPack(id) {
-      const packs = document.querySelectorAll('.pack-content');
-      packs.forEach(pack => pack.classList.remove('active'));
-      document.getElementById('pack' + id).classList.add('active');
     }
   </script>
 </body>
