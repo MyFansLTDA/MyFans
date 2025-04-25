@@ -41,21 +41,20 @@
       background-color: rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 20px var(--rosa);
       text-align: center;
-      width: 350px;
+      max-width: 380px;
       animation: fadeIn 1s forwards;
       transition: opacity 0.5s ease;
     }
 
     .age-box img {
-      width: 90px;
+      width: 100px;
       margin-bottom: 20px;
     }
 
     .age-box h2 {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
-      color: var(--rosa);
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .age-box p {
@@ -124,10 +123,18 @@
     }
 
     .arrow {
-      margin: 60px auto 60px;
+      margin: 60px auto 40px;
+      width: 40px;
+      height: 40px;
       animation: bounce 1.5s infinite;
-      font-size: 48px;
-      color: var(--rosa);
+      filter: drop-shadow(0 0 8px var(--rosa));
+      transition: transform 0.3s ease;
+    }
+
+    .arrow svg {
+      width: 100%;
+      height: 100%;
+      fill: var(--rosa);
     }
 
     @keyframes bounce {
@@ -139,13 +146,13 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 35px;
+      gap: 25px;
       padding: 0 20px;
     }
 
     .video-thumb {
-      width: 230px;
-      height: 150px;
+      width: 200px;
+      height: 130px;
       background-color: #333;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -187,10 +194,13 @@
       </a>
     </div>
 
-    <div class="arrow">⬇️</div>
+    <div class="arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0L160 284.1l96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L177 352.3c-9.4 9.4-24.6 9.4-34 0z"/>
+      </svg>
+    </div>
 
     <div class="videos-section">
-      <!-- 4 fileiras com 5 vídeos cada -->
       <div class="video-thumb"></div>
       <div class="video-thumb"></div>
       <div class="video-thumb"></div>
