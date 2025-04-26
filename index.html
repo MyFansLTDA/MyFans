@@ -13,15 +13,10 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background: url('background.jpg.png') no-repeat center center fixed;
       background-size: cover;
       color: var(--branco);
-      user-select: none;
-    }
-
-    img {
-      pointer-events: none;
     }
 
     .overlay {
@@ -36,7 +31,6 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      transition: opacity 0.5s ease;
     }
 
     .age-box {
@@ -46,9 +40,7 @@
       background-color: rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 20px var(--rosa);
       text-align: center;
-      max-width: 400px;
-      animation: fadeIn 1s forwards;
-      transition: opacity 0.5s ease;
+      max-width: 380px;
     }
 
     .age-box img {
@@ -91,7 +83,6 @@
       text-align: center;
       padding: 40px 20px;
       display: none;
-      animation: fadeIn 1s forwards;
     }
 
     .logo {
@@ -127,115 +118,110 @@
       width: 30px;
     }
 
-    .buy-button {
+    .btn-comprar {
       background-color: var(--rosa);
       color: var(--branco);
       border: none;
-      border-radius: 15px;
-      font-size: 22px;
-      padding: 15px 35px;
-      margin-bottom: 30px;
+      border-radius: 10px;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 0 15px var(--rosa);
-      transition: transform 0.2s, box-shadow 0.3s;
+      transition: background 0.3s ease;
+      margin-bottom: 30px;
     }
 
-    .buy-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px var(--rosa);
+    .btn-comprar:hover {
+      background-color: #e61e77;
     }
 
     .arrow {
-      margin: 50px auto 20px;
+      margin: 40px auto 20px;
+      width: 30px;
+      height: 30px;
+      border-left: 5px solid var(--rosa);
+      border-bottom: 5px solid var(--rosa);
+      transform: rotate(-45deg);
       animation: bounce 1.5s infinite;
-      font-size: 48px;
-      color: var(--rosa);
     }
 
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
+      0%, 100% { transform: rotate(-45deg) translateY(0); }
+      50% { transform: rotate(-45deg) translateY(10px); }
     }
 
-    .previews-container {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 40px 20px;
-      margin: 0 10px 60px;
+    .previews-wrapper {
+      max-width: 1100px;
+      margin: 40px auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px 20px;
       border-radius: 20px;
       box-shadow: 0 0 20px var(--rosa);
     }
 
     .previews-title {
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 30px;
+      font-size: 38px;
+      font-family: 'Arial Black', sans-serif;
       color: var(--rosa);
+      margin-bottom: 30px;
     }
 
     .videos-section {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
       justify-content: center;
-      gap: 25px;
     }
 
     .video-thumb {
-      width: 240px;
-      height: 160px;
       background-color: #333;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      height: 160px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
-    @media (max-width: 768px) {
-      .video-thumb {
-        width: 320px;
-        height: 200px;
-      }
-
-      .buy-button {
-        font-size: 20px;
-        padding: 12px 28px;
-      }
-
-      .previews-title {
-        font-size: 28px;
-      }
+    .footer-comprar {
+      margin-top: 40px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
+    /* Aviso de cookies */
     .cookie-banner {
       position: fixed;
       bottom: 0;
+      left: 0;
       width: 100%;
-      background: rgba(0,0,0,0.9);
-      color: white;
-      padding: 15px 20px;
+      background-color: #111;
+      color: var(--branco);
       text-align: center;
+      padding: 15px;
       font-size: 14px;
       z-index: 999;
     }
 
     .cookie-banner button {
-      margin-left: 15px;
       background-color: var(--rosa);
-      color: white;
+      color: var(--branco);
       border: none;
-      padding: 8px 15px;
-      border-radius: 8px;
+      padding: 10px 20px;
+      margin-left: 15px;
+      border-radius: 10px;
       cursor: pointer;
     }
 
-    .hidden {
-      display: none;
+    @media (min-width: 768px) {
+      .cookie-banner {
+        font-size: 18px;
+        padding: 20px;
+      }
+
+      .video-thumb {
+        height: 200px;
+      }
     }
+
   </style>
 </head>
-<body oncontextmenu="return false">
+<body>
 
   <!-- VERIFICAÇÃO +18 -->
   <div class="overlay" id="ageCheck">
@@ -243,7 +229,7 @@
       <img src="logo-myfans.png" alt="Logo MYFANS">
       <h2><strong>Você tem mais de 18 anos?</strong></h2>
       <p>
-        Este site contém material com restrição de idade, incluindo nudez e representação explícita de atividade sexual. Ao acessar, você afirma ter pelo menos 18 anos e concorda com nossos termos de segurança e privacidade.
+        Este site contém material com restrição de idade, incluindo nudez e representação explícita de atividade sexual. Ao registrar, você afirma que tem pelo menos 18 anos de idade ou a maioridade na jurisdição de onde está acessando o site e que consente visualizar o conteúdo sexualmente explícito.
       </p>
       <button class="sim" onclick="enterSite()">Sim, sou maior</button>
       <button class="nao" onclick="closeSite()">Não</button>
@@ -261,16 +247,18 @@
       <a href="https://t.me/+16HBCk3PsFNkMTUx" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/ff2c8e/telegram-app.png"/>
       </a>
-      <a href="https://www.tiktok.com/@myfansltda?_t=ZM-8vmhNRAohxW&_r=1" target="_blank">
+      <a href="https://www.tiktok.com/@myfansltda" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/ff2c8e/tiktok--v1.png"/>
       </a>
     </div>
 
-    <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx','_blank')">💸 COMPRAR AGORA</button>
+    <a href="https://t.me/+16HBCk3PsFNkMTUx" target="_blank">
+      <button class="btn-comprar">COMPRAR</button>
+    </a>
 
-    <div class="arrow">⬇️</div>
+    <div class="arrow"></div>
 
-    <div class="previews-container">
+    <div class="previews-wrapper">
       <div class="previews-title">PRÉVIAS</div>
       <div class="videos-section">
         <div class="video-thumb"></div>
@@ -282,27 +270,24 @@
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
       </div>
+      <div class="footer-comprar">
+        <a href="https://t.me/+16HBCk3PsFNkMTUx" target="_blank">
+          <button class="btn-comprar">COMPRAR</button>
+        </a>
+      </div>
     </div>
-
-    <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx','_blank')">🔞 COMPRAR MAIS CONTEÚDOS</button>
   </div>
 
   <!-- AVISO DE COOKIES -->
   <div class="cookie-banner" id="cookieBanner">
-    Este site utiliza cookies para melhorar a sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade.
-    <button onclick="acceptCookies()">Entendi</button>
+    Este site usa cookies para melhorar sua experiência.
+    <button onclick="aceitarCookies()">Aceitar</button>
   </div>
 
   <script>
     function enterSite() {
-      document.querySelector(".age-box").style.opacity = "0";
-      setTimeout(() => {
-        document.getElementById("ageCheck").style.opacity = "0";
-        setTimeout(() => {
-          document.getElementById("ageCheck").style.display = "none";
-          document.getElementById("mainContent").style.display = "block";
-        }, 500);
-      }, 200);
+      document.getElementById("ageCheck").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
     }
 
     function closeSite() {
@@ -310,12 +295,9 @@
       window.location.href = "https://google.com";
     }
 
-    function acceptCookies() {
-      document.getElementById("cookieBanner").classList.add("hidden");
+    function aceitarCookies() {
+      document.getElementById("cookieBanner").style.display = "none";
     }
-
-    // Bloqueia arrastar imagens
-    document.addEventListener('dragstart', e => e.preventDefault());
   </script>
 </body>
 </html>
