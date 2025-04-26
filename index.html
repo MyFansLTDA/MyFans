@@ -17,6 +17,11 @@
       background: url('background.jpg.png') no-repeat center center fixed;
       background-size: cover;
       color: var(--branco);
+      user-select: none;
+    }
+
+    img {
+      pointer-events: none;
     }
 
     .overlay {
@@ -41,7 +46,7 @@
       background-color: rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 20px var(--rosa);
       text-align: center;
-      max-width: 380px;
+      max-width: 400px;
       animation: fadeIn 1s forwards;
       transition: opacity 0.5s ease;
     }
@@ -123,30 +128,27 @@
     }
 
     .buy-button {
-      display: inline-block;
-      margin: 30px auto 10px;
-      padding: 15px 40px;
-      font-size: 20px;
-      font-weight: bold;
+      background-color: var(--rosa);
       color: var(--branco);
-      background: linear-gradient(45deg, #ff2c8e, #ff1493);
       border: none;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(255, 44, 142, 0.8);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-shadow: 1px 1px 2px #000;
+      border-radius: 15px;
+      font-size: 22px;
+      padding: 15px 35px;
+      margin-bottom: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--rosa);
+      transition: transform 0.2s, box-shadow 0.3s;
     }
 
     .buy-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(255, 44, 142, 1);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--rosa);
     }
 
     .arrow {
-      margin: 40px auto 20px;
+      margin: 50px auto 20px;
       animation: bounce 1.5s infinite;
-      font-size: 40px;
+      font-size: 48px;
       color: var(--rosa);
     }
 
@@ -155,21 +157,19 @@
       50% { transform: translateY(10px); }
     }
 
-    .section-preview {
+    .previews-container {
       background-color: rgba(0, 0, 0, 0.7);
-      border: 2px solid var(--rosa);
+      padding: 40px 20px;
+      margin: 0 10px 60px;
       border-radius: 20px;
-      margin: 40px auto 30px;
-      padding: 30px 20px;
-      max-width: 1000px;
-      box-shadow: 0 0 15px var(--rosa);
+      box-shadow: 0 0 20px var(--rosa);
     }
 
-    .section-preview h2 {
+    .previews-title {
       font-size: 36px;
-      font-family: 'Arial Black', sans-serif;
-      color: var(--rosa);
+      font-weight: bold;
       margin-bottom: 30px;
+      color: var(--rosa);
     }
 
     .videos-section {
@@ -180,8 +180,8 @@
     }
 
     .video-thumb {
-      width: 260px;
-      height: 170px;
+      width: 240px;
+      height: 160px;
       background-color: #333;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -189,17 +189,17 @@
 
     @media (max-width: 768px) {
       .video-thumb {
-        width: 90%;
+        width: 320px;
         height: 200px;
       }
 
-      .section-preview h2 {
-        font-size: 28px;
+      .buy-button {
+        font-size: 20px;
+        padding: 12px 28px;
       }
 
-      .buy-button {
-        width: 80%;
-        padding: 15px 0;
+      .previews-title {
+        font-size: 28px;
       }
     }
 
@@ -207,16 +207,43 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.9);
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 14px;
+      z-index: 999;
+    }
+
+    .cookie-banner button {
+      margin-left: 15px;
+      background-color: var(--rosa);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
-<body>
+<body oncontextmenu="return false">
+
   <!-- VERIFICAÇÃO +18 -->
   <div class="overlay" id="ageCheck">
     <div class="age-box">
       <img src="logo-myfans.png" alt="Logo MYFANS">
       <h2><strong>Você tem mais de 18 anos?</strong></h2>
       <p>
-        Este site contém material com restrição de idade, incluindo nudez e representação explícita de atividade sexual. Ao registrar, você afirma que tem pelo menos 18 anos de idade ou a maioridade na jurisdição de onde está acessando o site e que consente visualizar o conteúdo sexualmente explícito.
+        Este site contém material com restrição de idade, incluindo nudez e representação explícita de atividade sexual. Ao acessar, você afirma ter pelo menos 18 anos e concorda com nossos termos de segurança e privacidade.
       </p>
       <button class="sim" onclick="enterSite()">Sim, sou maior</button>
       <button class="nao" onclick="closeSite()">Não</button>
@@ -239,15 +266,12 @@
       </a>
     </div>
 
-    <!-- Botão COMPRAR -->
-    <a href="https://t.me/+16HBCk3PsFNkMTUx" target="_blank" class="buy-button">COMPRAR</a>
+    <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx','_blank')">💸 COMPRAR AGORA</button>
 
-    <!-- Seta -->
     <div class="arrow">⬇️</div>
 
-    <!-- Retângulo com "Prévias" -->
-    <div class="section-preview">
-      <h2>PRÉVIAS</h2>
+    <div class="previews-container">
+      <div class="previews-title">PRÉVIAS</div>
       <div class="videos-section">
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
@@ -259,6 +283,14 @@
         <div class="video-thumb"></div>
       </div>
     </div>
+
+    <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx','_blank')">🔞 COMPRAR MAIS CONTEÚDOS</button>
+  </div>
+
+  <!-- AVISO DE COOKIES -->
+  <div class="cookie-banner" id="cookieBanner">
+    Este site utiliza cookies para melhorar a sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade.
+    <button onclick="acceptCookies()">Entendi</button>
   </div>
 
   <script>
@@ -277,6 +309,13 @@
       alert("Você será redirecionado.");
       window.location.href = "https://google.com";
     }
+
+    function acceptCookies() {
+      document.getElementById("cookieBanner").classList.add("hidden");
+    }
+
+    // Bloqueia arrastar imagens
+    document.addEventListener('dragstart', e => e.preventDefault());
   </script>
 </body>
 </html>
