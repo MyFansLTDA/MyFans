@@ -43,6 +43,7 @@
       text-align: center;
       max-width: 380px;
       animation: fadeIn 1s forwards;
+      transition: opacity 0.5s ease;
     }
 
     .age-box img {
@@ -121,100 +122,85 @@
       width: 30px;
     }
 
-    .buy-button {
-      margin: 20px auto 10px;
-      padding: 15px 30px;
-      background-color: var(--rosa);
-      color: var(--branco);
-      border: none;
-      border-radius: 12px;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 0 10px var(--rosa);
-    }
-
-    .buy-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px var(--rosa);
+    .arrow-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
     }
 
     .custom-arrow {
-      width: 40px;
-      height: 40px;
-      margin: 30px auto;
-      border-left: 5px solid var(--rosa);
-      border-bottom: 5px solid var(--rosa);
-      transform: rotate(-45deg);
-      animation: arrowBounce 1.5s infinite;
+      animation: pulseArrow 1.8s infinite ease-in-out;
     }
 
-    @keyframes arrowBounce {
-      0%, 100% { transform: rotate(-45deg) translateY(0); }
-      50% { transform: rotate(-45deg) translateY(10px); }
+    @keyframes pulseArrow {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(6px);
+        opacity: 0.7;
+      }
     }
 
-    .preview-section {
+    .videos-wrapper {
       background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-      padding: 30px 20px;
-      margin: 30px auto;
-      max-width: 1000px;
-      box-shadow: 0 0 25px rgba(255, 44, 142, 0.4); /* glow rosa */
+      border-radius: 15px;
+      padding: 30px 10px;
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      box-shadow: 0 0 15px rgba(255, 44, 142, 0.3);
     }
 
-    .preview-title {
-      font-size: 32px;
-      font-weight: bold;
+    .videos-wrapper h2 {
+      font-size: 36px;
       color: var(--rosa);
+      font-family: 'Segoe UI', sans-serif;
       margin-bottom: 30px;
-      text-shadow: 0 0 10px var(--rosa);
     }
 
     .videos-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-      justify-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      justify-content: center;
+      padding: 0 20px;
     }
 
     .video-thumb {
-      width: 160px;
-      height: 100px;
+      width: 100%;
+      aspect-ratio: 16/9;
       background-color: #333;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
-    @media (min-width: 768px) {
-      .video-thumb {
-        width: 200px;
-        height: 130px;
-      }
-
-      .cookie-banner {
-        font-size: 16px;
-        padding: 18px;
-      }
+    .buy-button {
+      background-color: var(--rosa);
+      color: var(--branco);
+      padding: 15px 30px;
+      font-size: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(0,0,0,0.8);
-      color: var(--branco);
-      text-align: center;
-      padding: 12px;
-      font-size: 14px;
-      z-index: 999;
+    .buy-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px var(--rosa);
     }
 
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .video-thumb {
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -224,9 +210,7 @@
     <div class="age-box">
       <img src="logo-myfans.png" alt="Logo MYFANS">
       <h2><strong>Você tem mais de 18 anos?</strong></h2>
-      <p>
-        Este site contém material com restrição de idade, incluindo nudez e representação explícita de atividade sexual. Ao registrar, você afirma que tem pelo menos 18 anos de idade ou a maioridade na jurisdição de onde está acessando o site e que consente visualizar o conteúdo sexualmente explícito.
-      </p>
+      <p>Este site contém material com restrição de idade. Ao prosseguir, você confirma ser maior de idade e consente visualizar conteúdo adulto.</p>
       <button class="sim" onclick="enterSite()">Sim, sou maior</button>
       <button class="nao" onclick="closeSite()">Não</button>
     </div>
@@ -248,12 +232,16 @@
       </a>
     </div>
 
-    <button class="buy-button" onclick="window.location.href='https://t.me/+16HBCk3PsFNkMTUx'">Comprar</button>
+    <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx', '_blank')">COMPRAR</button>
 
-    <div class="custom-arrow"></div>
+    <div class="arrow-container">
+      <svg class="custom-arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff2c8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M19 12l-7 7-7-7"/>
+      </svg>
+    </div>
 
-    <div class="preview-section">
-      <div class="preview-title">PRÉVIAS</div>
+    <div class="videos-wrapper">
+      <h2>Prévias</h2>
       <div class="videos-section">
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
@@ -266,13 +254,8 @@
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
       </div>
+      <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx', '_blank')">ADQUIRA JÁ</button>
     </div>
-
-    <button class="buy-button" onclick="window.location.href='https://t.me/+16HBCk3PsFNkMTUx'">Adquira já</button>
-  </div>
-
-  <div class="cookie-banner">
-    Este site utiliza cookies para melhorar a experiência. Ao continuar, você concorda com nossa política de privacidade.
   </div>
 
   <script>
