@@ -9,12 +9,11 @@
       --rosa: #ff2c8e;
       --branco: #ffffff;
       --preto: #000000;
-      --cinza: #1a1a1a;
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       background: url('background.jpg.png') no-repeat center center fixed;
       background-size: cover;
       color: var(--branco);
@@ -32,6 +31,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      transition: opacity 0.5s ease;
     }
 
     .age-box {
@@ -42,11 +42,50 @@
       box-shadow: 0 0 20px var(--rosa);
       text-align: center;
       max-width: 380px;
+      animation: fadeIn 1s forwards;
+    }
+
+    .age-box img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .age-box h2 {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .age-box p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .age-box button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .sim {
+      background-color: var(--rosa);
+      color: var(--branco);
+    }
+
+    .nao {
+      background-color: var(--branco);
+      color: var(--preto);
     }
 
     .container {
       text-align: center;
       padding: 40px 20px;
+      display: none;
+      animation: fadeIn 1s forwards;
     }
 
     .logo {
@@ -85,106 +124,112 @@
     .buy-button {
       background-color: var(--rosa);
       color: var(--branco);
-      border: none;
       font-size: 20px;
+      font-weight: bold;
       padding: 15px 30px;
+      border: none;
       border-radius: 12px;
       cursor: pointer;
-      margin-bottom: 40px;
-      box-shadow: 0 0 12px var(--rosa);
-      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 0 15px var(--rosa);
+      margin: 20px 0;
+      transition: transform 0.3s, background-color 0.3s;
     }
 
     .buy-button:hover {
-      background-color: #e0267c;
       transform: scale(1.05);
+      background-color: #e91e78;
     }
 
-    .arrow {
+    .arrow-container {
+      margin: 20px auto 30px;
       width: 40px;
       height: 40px;
-      margin: 0 auto 30px;
-      animation: arrowMove 1.5s infinite;
-      filter: drop-shadow(0 0 4px var(--rosa));
+      animation: bounce 2s infinite;
     }
 
-    @keyframes arrowMove {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
-      100% { transform: translateY(0); }
-    }
-
-    .arrow svg {
+    .arrow-svg {
       fill: var(--rosa);
       width: 100%;
       height: 100%;
     }
 
-    .video-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: rgba(26, 26, 26, 0.8);
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    .preview-section {
+      background-color: rgba(0, 0, 0, 0.6);
       border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      padding: 30px 20px;
+      margin: 30px auto;
+      max-width: 1000px;
     }
 
-    .video-section h2 {
-      font-size: 40px;
-      font-weight: 700;
-      margin-bottom: 30px;
+    .preview-title {
+      font-size: 32px;
+      font-weight: bold;
       color: var(--rosa);
-      text-shadow: 2px 2px 10px var(--preto);
+      margin-bottom: 25px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .videos-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .videos-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 25px;
+      justify-content: center;
     }
 
     .video-thumb {
-      width: 220px;
+      width: 100%;
       height: 140px;
-      background-color: #2b2b2b;
+      background-color: #333;
       border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-    }
-
-    .video-thumb:hover {
-      transform: scale(1.03);
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
     .buy-bottom {
-      margin-top: 50px;
+      margin-top: 30px;
     }
 
-    @media (max-width: 768px) {
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
       .video-thumb {
-        width: 90vw;
-        height: 180px;
+        height: 160px;
       }
 
-      .video-section h2 {
-        font-size: 30px;
+      .preview-title {
+        font-size: 26px;
+      }
+
+      .buy-button {
+        font-size: 18px;
+        padding: 12px 25px;
       }
     }
   </style>
 </head>
 <body>
+  <!-- VERIFICAÇÃO +18 -->
   <div class="overlay" id="ageCheck">
     <div class="age-box">
-      <img src="logo-myfans.png" alt="Logo MYFANS" width="100" style="margin-bottom: 20px;">
-      <h2>Você tem mais de 18 anos?</h2>
-      <p>Este site contém material adulto. Você confirma ter mais de 18 anos?</p>
+      <img src="logo-myfans.png" alt="Logo MYFANS">
+      <h2><strong>Você tem mais de 18 anos?</strong></h2>
+      <p>
+        Este site contém material com restrição de idade. Ao continuar, você confirma que tem pelo menos 18 anos.
+      </p>
       <button class="sim" onclick="enterSite()">Sim, sou maior</button>
       <button class="nao" onclick="closeSite()">Não</button>
     </div>
   </div>
 
-  <div class="container" id="mainContent" style="display: none;">
+  <!-- CONTEÚDO DO SITE -->
+  <div class="container" id="mainContent">
     <img src="logo-myfans.png" alt="MYFANS Logo" class="logo" />
 
     <div class="social-buttons">
@@ -194,28 +239,27 @@
       <a href="https://t.me/+16HBCk3PsFNkMTUx" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/ff2c8e/telegram-app.png"/>
       </a>
-      <a href="https://www.tiktok.com/@myfansltda" target="_blank">
+      <a href="https://www.tiktok.com/@myfansltda?_t=ZM-8vmhNRAohxW&_r=1" target="_blank">
         <img src="https://img.icons8.com/ios-filled/50/ff2c8e/tiktok--v1.png"/>
       </a>
     </div>
 
     <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx', '_blank')">COMPRAR</button>
 
-    <div class="arrow">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 16.5l-7-7 1.4-1.4L12 13.7l5.6-5.6L19 9.5z"/>
+    <div class="arrow-container">
+      <svg class="arrow-svg" viewBox="0 0 24 24">
+        <path d="M12 16.5l-8-8 1.41-1.41L12 13.67l6.59-6.58L20 8.5z"/>
       </svg>
     </div>
 
-    <div class="video-section">
-      <h2>Prévias</h2>
-      <div class="videos-grid">
+    <div class="preview-section">
+      <div class="preview-title">PRÉVIAS</div>
+      <div class="videos-section">
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
-
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
@@ -224,15 +268,21 @@
       </div>
 
       <div class="buy-bottom">
-        <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx', '_blank')">COMPRAR</button>
+        <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx', '_blank')">ADQUIRA JÁ</button>
       </div>
     </div>
   </div>
 
   <script>
     function enterSite() {
-      document.querySelector(".overlay").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
+      document.querySelector(".age-box").style.opacity = "0";
+      setTimeout(() => {
+        document.getElementById("ageCheck").style.opacity = "0";
+        setTimeout(() => {
+          document.getElementById("ageCheck").style.display = "none";
+          document.getElementById("mainContent").style.display = "block";
+        }, 500);
+      }, 200);
     }
 
     function closeSite() {
