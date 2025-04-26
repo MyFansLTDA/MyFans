@@ -122,40 +122,37 @@
     }
 
     .buy-button {
+      margin: 20px auto 10px;
+      padding: 15px 30px;
       background-color: var(--rosa);
       color: var(--branco);
-      font-size: 20px;
-      font-weight: bold;
-      padding: 15px 30px;
       border: none;
       border-radius: 12px;
+      font-size: 20px;
+      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 0 15px var(--rosa);
-      margin: 20px 0;
-      transition: transform 0.3s, background-color 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 10px var(--rosa);
     }
 
     .buy-button:hover {
       transform: scale(1.05);
-      background-color: #e91e78;
+      box-shadow: 0 0 20px var(--rosa);
     }
 
-    .arrow-container {
-      margin: 20px auto 30px;
+    .custom-arrow {
       width: 40px;
       height: 40px;
-      animation: bounce 2s infinite;
+      margin: 30px auto;
+      border-left: 5px solid var(--rosa);
+      border-bottom: 5px solid var(--rosa);
+      transform: rotate(-45deg);
+      animation: arrowBounce 1.5s infinite;
     }
 
-    .arrow-svg {
-      fill: var(--rosa);
-      width: 100%;
-      height: 100%;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
+    @keyframes arrowBounce {
+      0%, 100% { transform: rotate(-45deg) translateY(0); }
+      50% { transform: rotate(-45deg) translateY(10px); }
     }
 
     .preview-section {
@@ -164,53 +161,60 @@
       padding: 30px 20px;
       margin: 30px auto;
       max-width: 1000px;
+      box-shadow: 0 0 25px rgba(255, 44, 142, 0.4); /* glow rosa */
     }
 
     .preview-title {
       font-size: 32px;
       font-weight: bold;
       color: var(--rosa);
-      margin-bottom: 25px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px var(--rosa);
     }
 
     .videos-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 25px;
-      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      justify-items: center;
     }
 
     .video-thumb {
-      width: 100%;
-      height: 140px;
+      width: 160px;
+      height: 100px;
       background-color: #333;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
-    .buy-bottom {
-      margin-top: 30px;
+    @media (min-width: 768px) {
+      .video-thumb {
+        width: 200px;
+        height: 130px;
+      }
+
+      .cookie-banner {
+        font-size: 16px;
+        padding: 18px;
+      }
+    }
+
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0,0,0,0.8);
+      color: var(--branco);
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      z-index: 999;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
-    }
-
-    @media (max-width: 600px) {
-      .video-thumb {
-        height: 160px;
-      }
-
-      .preview-title {
-        font-size: 26px;
-      }
-
-      .buy-button {
-        font-size: 18px;
-        padding: 12px 25px;
-      }
     }
   </style>
 </head>
@@ -221,7 +225,7 @@
       <img src="logo-myfans.png" alt="Logo MYFANS">
       <h2><strong>Você tem mais de 18 anos?</strong></h2>
       <p>
-        Este site contém material com restrição de idade. Ao continuar, você confirma que tem pelo menos 18 anos.
+        Este site contém material com restrição de idade, incluindo nudez e representação explícita de atividade sexual. Ao registrar, você afirma que tem pelo menos 18 anos de idade ou a maioridade na jurisdição de onde está acessando o site e que consente visualizar o conteúdo sexualmente explícito.
       </p>
       <button class="sim" onclick="enterSite()">Sim, sou maior</button>
       <button class="nao" onclick="closeSite()">Não</button>
@@ -244,13 +248,9 @@
       </a>
     </div>
 
-    <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx', '_blank')">COMPRAR</button>
+    <button class="buy-button" onclick="window.location.href='https://t.me/+16HBCk3PsFNkMTUx'">Comprar</button>
 
-    <div class="arrow-container">
-      <svg class="arrow-svg" viewBox="0 0 24 24">
-        <path d="M12 16.5l-8-8 1.41-1.41L12 13.67l6.59-6.58L20 8.5z"/>
-      </svg>
-    </div>
+    <div class="custom-arrow"></div>
 
     <div class="preview-section">
       <div class="preview-title">PRÉVIAS</div>
@@ -266,11 +266,13 @@
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
       </div>
-
-      <div class="buy-bottom">
-        <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx', '_blank')">ADQUIRA JÁ</button>
-      </div>
     </div>
+
+    <button class="buy-button" onclick="window.location.href='https://t.me/+16HBCk3PsFNkMTUx'">Adquira já</button>
+  </div>
+
+  <div class="cookie-banner">
+    Este site utiliza cookies para melhorar a experiência. Ao continuar, você concorda com nossa política de privacidade.
   </div>
 
   <script>
