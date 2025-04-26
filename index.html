@@ -9,11 +9,12 @@
       --rosa: #ff2c8e;
       --branco: #ffffff;
       --preto: #000000;
+      --cinza: #1a1a1a;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: url('background.jpg.png') no-repeat center center fixed;
       background-size: cover;
       color: var(--branco);
@@ -31,7 +32,6 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      transition: opacity 0.5s ease;
     }
 
     .age-box {
@@ -42,51 +42,11 @@
       box-shadow: 0 0 20px var(--rosa);
       text-align: center;
       max-width: 380px;
-      animation: fadeIn 1s forwards;
-      transition: opacity 0.5s ease;
-    }
-
-    .age-box img {
-      width: 100px;
-      margin-bottom: 20px;
-    }
-
-    .age-box h2 {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .age-box p {
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    .age-box button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .sim {
-      background-color: var(--rosa);
-      color: var(--branco);
-    }
-
-    .nao {
-      background-color: var(--branco);
-      color: var(--preto);
     }
 
     .container {
       text-align: center;
       padding: 40px 20px;
-      display: none;
-      animation: fadeIn 1s forwards;
     }
 
     .logo {
@@ -126,82 +86,89 @@
       background-color: var(--rosa);
       color: var(--branco);
       border: none;
-      border-radius: 15px;
-      padding: 15px 30px;
       font-size: 20px;
-      font-weight: bold;
-      margin: 30px auto 20px;
+      padding: 15px 30px;
+      border-radius: 12px;
       cursor: pointer;
-      box-shadow: 0 0 15px var(--rosa);
-      transition: transform 0.3s, background 0.3s;
+      margin-bottom: 40px;
+      box-shadow: 0 0 12px var(--rosa);
+      transition: background 0.3s, transform 0.3s;
     }
 
     .buy-button:hover {
+      background-color: #e0267c;
       transform: scale(1.05);
-      background-color: #e0267e;
     }
 
-    .custom-arrow {
-      width: 30px;
-      height: 30px;
-      margin: 40px auto 20px;
-      border-right: 4px solid var(--rosa);
-      border-bottom: 4px solid var(--rosa);
-      transform: rotate(45deg);
-      animation: bounce 1.5s infinite;
+    .arrow {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 30px;
+      animation: arrowMove 1.5s infinite;
+      filter: drop-shadow(0 0 4px var(--rosa));
     }
 
-    @keyframes bounce {
-      0%, 100% { transform: rotate(45deg) translateY(0); }
-      50% { transform: rotate(45deg) translateY(10px); }
+    @keyframes arrowMove {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+      100% { transform: translateY(0); }
     }
 
-    .preview-section {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 40px 20px;
-      border-radius: 20px;
-      max-width: 1100px;
+    .arrow svg {
+      fill: var(--rosa);
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-section {
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(26, 26, 26, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
 
-    .preview-title {
-      font-size: 38px;
+    .video-section h2 {
+      font-size: 40px;
+      font-weight: 700;
       margin-bottom: 30px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-weight: bold;
       color: var(--rosa);
+      text-shadow: 2px 2px 10px var(--preto);
     }
 
-    .videos-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 20px;
+    .videos-grid {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 25px;
     }
 
     .video-thumb {
-      width: 100%;
-      height: 160px;
-      background-color: #333;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      width: 220px;
+      height: 140px;
+      background-color: #2b2b2b;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
     }
 
-    .footer-buy-button {
-      margin: 50px auto 30px;
+    .video-thumb:hover {
+      transform: scale(1.03);
+    }
+
+    .buy-bottom {
+      margin-top: 50px;
     }
 
     @media (max-width: 768px) {
       .video-thumb {
-        height: 200px;
+        width: 90vw;
+        height: 180px;
       }
 
-      .preview-title {
-        font-size: 28px;
-      }
-
-      .videos-section {
-        grid-template-columns: repeat(2, 1fr);
+      .video-section h2 {
+        font-size: 30px;
       }
     }
   </style>
@@ -209,15 +176,15 @@
 <body>
   <div class="overlay" id="ageCheck">
     <div class="age-box">
-      <img src="logo-myfans.png" alt="Logo MYFANS">
-      <h2><strong>Você tem mais de 18 anos?</strong></h2>
-      <p>Este site contém material com restrição de idade. Ao continuar, você afirma que é maior de idade.</p>
+      <img src="logo-myfans.png" alt="Logo MYFANS" width="100" style="margin-bottom: 20px;">
+      <h2>Você tem mais de 18 anos?</h2>
+      <p>Este site contém material adulto. Você confirma ter mais de 18 anos?</p>
       <button class="sim" onclick="enterSite()">Sim, sou maior</button>
       <button class="nao" onclick="closeSite()">Não</button>
     </div>
   </div>
 
-  <div class="container" id="mainContent">
+  <div class="container" id="mainContent" style="display: none;">
     <img src="logo-myfans.png" alt="MYFANS Logo" class="logo" />
 
     <div class="social-buttons">
@@ -232,43 +199,40 @@
       </a>
     </div>
 
-    <a href="https://t.me/+16HBCk3PsFNkMTUx" target="_blank">
-      <button class="buy-button">COMPRAR</button>
-    </a>
+    <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx', '_blank')">COMPRAR</button>
 
-    <div class="custom-arrow"></div>
+    <div class="arrow">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 16.5l-7-7 1.4-1.4L12 13.7l5.6-5.6L19 9.5z"/>
+      </svg>
+    </div>
 
-    <div class="preview-section">
-      <div class="preview-title">PRÉVIAS</div>
-      <div class="videos-section">
+    <div class="video-section">
+      <h2>Prévias</h2>
+      <div class="videos-grid">
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
+
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
         <div class="video-thumb"></div>
       </div>
-    </div>
 
-    <a href="https://t.me/+16HBCk3PsFNkMTUx" target="_blank">
-      <button class="buy-button footer-buy-button">COMPRAR</button>
-    </a>
+      <div class="buy-bottom">
+        <button class="buy-button" onclick="window.open('https://t.me/+16HBCk3PsFNkMTUx', '_blank')">COMPRAR</button>
+      </div>
+    </div>
   </div>
 
   <script>
     function enterSite() {
-      document.querySelector(".age-box").style.opacity = "0";
-      setTimeout(() => {
-        document.getElementById("ageCheck").style.opacity = "0";
-        setTimeout(() => {
-          document.getElementById("ageCheck").style.display = "none";
-          document.getElementById("mainContent").style.display = "block";
-        }, 500);
-      }, 200);
+      document.querySelector(".overlay").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
     }
 
     function closeSite() {
